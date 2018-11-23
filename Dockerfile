@@ -1,4 +1,4 @@
-FROM python:3-slim
+FROM python:alpine
 
 RUN pip3 install cql
 RUN pip3 install cdeploy
