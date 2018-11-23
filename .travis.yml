@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+- docker
+
+branches:
+  only:
+  - master
+
+script:
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker build -t "abansod04/cdeploy:alpine" .
+- docker push "abansod04/cdeploy:alpine"
+- docker logout
